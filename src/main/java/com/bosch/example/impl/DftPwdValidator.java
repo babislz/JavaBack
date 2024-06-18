@@ -1,5 +1,32 @@
 package com.bosch.example.impl;
 
-public class DftPwdValidator {
+import com.bosch.example.services.PwdValidator;
+
+public class DftPwdValidator implements PwdValidator {
     
+    @Override
+    public boolean validate(String pwd) {
+        if(pwd == null || pwd.length() < 8) {
+            return false;
+        }
+
+        boolean hLowerCase = false;
+        boolean hUpperCase = false;
+        boolean hDigit = false;
+
+        for (char c : pwd.toCharArray()) {
+            if (Character.isLowerCase(c)) {
+                hLowerCase = true;
+            } else if (Character.isUpperCase(c)) {
+                hUpperCase = true;
+            } else if (Character.isDigit(c)) {
+                hDigit = true;
+            }
+
+            if (hLowerCase && hUpperCase && hDigit) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
