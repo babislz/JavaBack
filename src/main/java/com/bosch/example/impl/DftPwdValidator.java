@@ -1,7 +1,9 @@
 package com.bosch.example.impl;
 
+import org.springframework.stereotype.Component;
 import com.bosch.example.services.PwdValidator;
 
+@Component
 public class DftPwdValidator implements PwdValidator {
     
     @Override

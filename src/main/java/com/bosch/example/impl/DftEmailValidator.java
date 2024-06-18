@@ -2,8 +2,11 @@ package com.bosch.example.impl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.springframework.stereotype.Component;
 import com.bosch.example.services.EmailValidator;
 
+@Component
 public class DftEmailValidator implements EmailValidator {
 
     private static final String REGEX =
